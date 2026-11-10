@@ -1,6 +1,6 @@
 def mostrar_productos(productos):
     for codigo in productos:
-        print(codigo, productos[codigo][0], "$", productos[codigo][1], "Existencias:", productos[codigo][2])
+        print(codigo, productos[codigo][0], "$", productos[codigo][1], "Cantidad:", productos[codigo][2])
 
 def registrar_producto(productos, pedido, codigo, cantidad):
     if codigo not in productos:
