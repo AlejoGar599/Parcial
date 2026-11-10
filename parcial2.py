@@ -1,8 +1,7 @@
-# Parcial 3 - Logica de Programacion
-# Integrantes: nombre 1, nombre 2, nombre 3
 def mostrar_productos(productos):
     for codigo in productos:
         print(codigo, productos[codigo][0], "$", productos[codigo][1], "Existencias:", productos[codigo][2])
+
 def registrar_producto(productos, pedido, codigo, cantidad):
     if codigo not in productos:
         print("Producto no encontrado.")
@@ -18,17 +17,20 @@ def registrar_producto(productos, pedido, codigo, cantidad):
         pedido.append((codigo, nombre, cantidad, subtotal))
         productos[codigo] = (nombre, precio, existencias - cantidad)
         print("Producto agregado al pedido.")
+
 def calcular_total(pedido):
     total = 0
     for i in range(len(pedido)):
         total = total + pedido[i][3]
     return total
+
 def pedir_producto():
     print("-----Catalogo-----")
     mostrar_productos(productos)
     codigo = int(input("Codigo del producto: "))
     cantidad = int(input("Cantidad: "))
     registrar_producto(productos, pedido, codigo, cantidad)
+
 def mostrar_resumen():
     total = calcular_total(pedido)
     if total >= 50000:
@@ -46,6 +48,7 @@ def mostrar_resumen():
     print("Descuento : $" + str(int(descuento)))
     print("TOTAL A PAGAR : $" + str(int(total_final)))
     print("========================================")
+
 def menu_principal():
     while True:
         print("========== CAFETERIA ==========")
