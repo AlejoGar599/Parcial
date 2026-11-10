@@ -1,14 +1,15 @@
+#Alejandro García, Juan Andrés Daza
 def mostrar_productos(productos):
     for codigo in productos:
         print(codigo, productos[codigo][0], "$", productos[codigo][1], "Cantidad:", productos[codigo][2])
 
 def registrar_producto(productos, pedido, codigo, cantidad):
     if codigo not in productos:
-        print("Producto no encontrado.")
+        print("Producto no encontrado")
     elif cantidad <= 0:
-        print("Cantidad no valida.")
+        print("Cantidad no valida")
     elif cantidad > productos[codigo][2]:
-        print("No hay suficientes unidades disponibles.")
+        print("No hay suficientes unidades disponibles")
     else:
         nombre = productos[codigo][0]
         precio = productos[codigo][1]
@@ -16,7 +17,7 @@ def registrar_producto(productos, pedido, codigo, cantidad):
         subtotal = precio * cantidad
         pedido.append((codigo, nombre, cantidad, subtotal))
         productos[codigo] = (nombre, precio, existencias - cantidad)
-        print("Producto agregado al pedido.")
+        print("Producto agregado al pedido")
 
 def calcular_total(pedido):
     total = 0
@@ -41,8 +42,10 @@ def mostrar_resumen():
     print("========== RESUMEN DEL PEDIDO ==========")
     print("Producto  Cantidad  Subtotal")
     print("-----------------------------------------")
+
     for i in range(len(pedido)):
         print(pedido[i][1], pedido[i][2], pedido[i][3])
+
     print("-----------------------------------------")
     print("Total : $" + str(int(total)))
     print("Descuento : $" + str(int(descuento)))
@@ -53,8 +56,9 @@ def menu_principal():
     while True:
         print("========== CAFETERIA ==========")
         print("1. Mostrar productos")
-        print("2. Agregar producto al pedido")
+        print("2. Hacer un pedido")
         print("3. Finalizar pedido")
+
         opcion = input("Seleccione una opcion: ")
         if opcion == "1":
             mostrar_productos(productos)
@@ -65,6 +69,7 @@ def menu_principal():
             break
         else:
             print("Opcion no valida.")
+
 productos = {
 1: ("Cafe", 3000, 20),
 2: ("Jugo natural", 5000, 15),
